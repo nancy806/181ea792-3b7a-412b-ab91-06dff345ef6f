@@ -174,29 +174,6 @@
       align-content: end;
       gap: 18px;
     }
-    .hero-logo-card {
-      position: relative;
-      z-index: 3;
-      width: min(290px, 52vw);
-      border: 1px solid oklch(100% 0 0 / 0.72);
-      border-radius: 30px;
-      padding: 22px;
-      background: oklch(100% 0 0 / 0.82);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 20px 48px oklch(31% 0.08 260 / 0.16);
-    }
-    .hero-logo-card img {
-      display: block;
-      width: 150px;
-      margin: 0 auto;
-    }
-    .hero-logo-card strong {
-      display: block;
-      color: var(--ink);
-      font-size: 19px;
-      line-height: 1.35;
-      text-align: center;
-    }
     .messenger {
       position: relative;
       border-radius: 42px;
@@ -226,7 +203,7 @@
       z-index: -1;
     }
     .phone {
-      min-height: 660px;
+      min-height: 590px;
       border-radius: 32px;
       overflow: hidden;
       background: linear-gradient(180deg, #fbfdff, oklch(94% 0.035 250));
@@ -249,15 +226,15 @@
       background: var(--accent-2);
       box-shadow: 0 0 0 5px oklch(72% 0.14 174 / 0.16);
     }
-    .thread { padding: 28px 26px 34px; }
+    .thread { padding: 24px 24px 30px; }
     .bubble {
       width: fit-content;
       max-width: 88%;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
       border-radius: 22px;
-      padding: 18px 20px;
+      padding: 15px 18px;
       line-height: 1.65;
-      font-size: 17px;
+      font-size: 16px;
       box-shadow: 0 10px 24px oklch(32% 0.09 260 / 0.08);
     }
     .bubble.user {
@@ -536,7 +513,6 @@
       .hero { min-height: auto; padding-top: 42px; }
       .hero-grid, .capability { grid-template-columns: 1fr; }
       .hero-visual { min-height: auto; max-width: 620px; margin: 0 auto; }
-      .hero-logo-card { width: 100%; }
       .messenger { transform: none; max-width: 560px; margin: 0 auto; }
       .pain-grid, .persona-grid { grid-template-columns: 1fr; }
       .industry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -569,70 +545,75 @@
   <div class="page">
     <header class="hero">
       <div class="wrap hero-grid">
-        <div>
-          <a class="brand" href="#" aria-label="Raccoon AI 首頁">
-            <span class="logo-mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32" fill="none">
-                <path d="M8 10.5c3.7-2.6 12.3-2.6 16 0v7.2c0 4.8-4.3 8-8 8s-8-3.2-8-8v-7.2Z" fill="white"/>
-                <path d="M11 15.2c2.4-1.5 7.6-1.5 10 0v2.6c-2.6 2.4-7.4 2.4-10 0v-2.6Z" fill="currentColor"/>
-                <circle cx="13.2" cy="16.3" r="1.25" fill="white"/>
-                <circle cx="18.8" cy="16.3" r="1.25" fill="white"/>
-                <path d="M21.4 8.2h5.1v5.1" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
-              </svg>
-            </span>
-            <span>Raccoon AI</span>
-          </a>
-          <div class="eyebrow-row" aria-label="產品重點">
-            <span class="chip">市場獨家</span>
-            <span class="chip">一站整合</span>
-            <span class="chip">自動對話</span>
+        <div class="hero-copy">
+          <div class="hero-block hero-brand-block">
+            <a class="brand" href="#" aria-label="Raccoon AI 首頁">
+              <span class="logo-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                  <path d="M8 10.5c3.7-2.6 12.3-2.6 16 0v7.2c0 4.8-4.3 8-8 8s-8-3.2-8-8v-7.2Z" fill="white"/>
+                  <path d="M11 15.2c2.4-1.5 7.6-1.5 10 0v2.6c-2.6 2.4-7.4 2.4-10 0v-2.6Z" fill="currentColor"/>
+                  <circle cx="13.2" cy="16.3" r="1.25" fill="white"/>
+                  <circle cx="18.8" cy="16.3" r="1.25" fill="white"/>
+                  <path d="M21.4 8.2h5.1v5.1" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+              </span>
+              <span>Raccoon AI</span>
+            </a>
           </div>
-          <h1>解決高複雜產業情境的 AI 智能客服</h1>
-          <p class="lead">Raccoon AI 打造企業級 AI 客戶服務，整合多通路訊息、即時回覆高頻問題，讓品牌在每一次對話中都能抓住商機。</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#industries">查看產業應用</a>
-            <a class="btn btn-secondary" href="#persona">適合對象</a>
+          <div class="hero-block hero-message-block">
+            <div class="eyebrow-row" aria-label="產品重點">
+              <span class="chip">市場獨家</span>
+              <span class="chip">一站整合</span>
+              <span class="chip">自動對話</span>
+            </div>
+            <h1>解決高複雜產業情境的 AI 智能客服</h1>
+            <p class="lead">Raccoon AI 打造企業級 AI 客戶服務，整合多通路訊息、即時回覆高頻問題，讓品牌在每一次對話中都能抓住商機。</p>
+          </div>
+          <div class="hero-block hero-cta-block">
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#industries">查看產業應用</a>
+              <a class="btn btn-secondary" href="#persona">適合對象</a>
+            </div>
           </div>
         </div>
 
         <div class="hero-visual" aria-label="Raccoon AI 智能客服主視覺">
-          <div class="hero-logo-card">
-            <img src="mpcsc96l-Notification-icon.png" alt="Raccoon AI logo">
-          </div>
-          <div class="messenger" aria-label="AI 智能客服對話示意">
-            <div class="phone">
-              <div class="phone-head">
-                <div class="brand">
-                  <span class="logo-mark" aria-hidden="true">
-                    <svg viewBox="0 0 32 32" fill="none">
-                      <path d="M8 10.5c3.7-2.6 12.3-2.6 16 0v7.2c0 4.8-4.3 8-8 8s-8-3.2-8-8v-7.2Z" fill="white"/>
-                      <path d="M11 15.2c2.4-1.5 7.6-1.5 10 0v2.6c-2.6 2.4-7.4 2.4-10 0v-2.6Z" fill="currentColor"/>
-                      <circle cx="13.2" cy="16.3" r="1.25" fill="white"/>
-                      <circle cx="18.8" cy="16.3" r="1.25" fill="white"/>
-                    </svg>
-                  </span>
-                  <span>AI 智能客服</span>
-                </div>
-                <span class="status" aria-hidden="true"></span>
-              </div>
-              <div class="thread">
-                <div class="bubble user">
-                  這款保健食品適合長期熬夜的人嗎？
-                </div>
-                <div class="bubble ai">
-                  <strong>Raccoon AI</strong>
-                  可以。若主要需求是精神與代謝，我會先確認您的作息、過敏原與是否正在服藥，再推薦合適組合。
-                  <div class="task-list" aria-label="AI 已完成的判斷">
-                    <span class="task">辨識商品規格與禁忌</span>
-                    <span class="task">保留對話脈絡</span>
+          <div class="hero-chat-block">
+            <div class="messenger" aria-label="AI 智能客服對話示意">
+              <div class="phone">
+                <div class="phone-head">
+                  <div class="brand">
+                    <span class="logo-mark" aria-hidden="true">
+                      <svg viewBox="0 0 32 32" fill="none">
+                        <path d="M8 10.5c3.7-2.6 12.3-2.6 16 0v7.2c0 4.8-4.3 8-8 8s-8-3.2-8-8v-7.2Z" fill="white"/>
+                        <path d="M11 15.2c2.4-1.5 7.6-1.5 10 0v2.6c-2.6 2.4-7.4 2.4-10 0v-2.6Z" fill="currentColor"/>
+                        <circle cx="13.2" cy="16.3" r="1.25" fill="white"/>
+                        <circle cx="18.8" cy="16.3" r="1.25" fill="white"/>
+                      </svg>
+                    </span>
+                    <span>AI 智能客服</span>
                   </div>
+                  <span class="status" aria-hidden="true"></span>
                 </div>
-                <div class="bubble user">
-                  如果顧客情緒比較急，也能接住嗎？
-                </div>
-                <div class="bubble ai">
-                  <strong>情緒升溫已偵測</strong>
-                  我會先用品牌語氣安撫，整理重點後再轉交真人客服，避免重複詢問。
+                <div class="thread">
+                  <div class="bubble user">
+                    這款保健食品適合長期熬夜的人嗎？
+                  </div>
+                  <div class="bubble ai">
+                    <strong>Raccoon AI</strong>
+                    可以。若主要需求是精神與代謝，我會先確認您的作息、過敏原與是否正在服藥，再推薦合適組合。
+                    <div class="task-list" aria-label="AI 已完成的判斷">
+                      <span class="task">辨識商品規格與禁忌</span>
+                      <span class="task">保留對話脈絡</span>
+                    </div>
+                  </div>
+                  <div class="bubble user">
+                    如果顧客情緒比較急，也能接住嗎？
+                  </div>
+                  <div class="bubble ai">
+                    <strong>情緒升溫已偵測</strong>
+                    我會先用品牌語氣安撫，整理重點後再轉交真人客服，避免重複詢問。
+                  </div>
                 </div>
               </div>
             </div>
