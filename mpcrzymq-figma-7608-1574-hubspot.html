@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raccoon AI 產業頁面</title>
+    <style>
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Noto Sans TC", "PingFang TC", Arial, sans-serif;
+        color: #1f1f1f;
+        background: #f7fbff;
+      }
+      img { max-width: 100%; display: block; }
+      .page {
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .container {
+        width: 100%;
+        max-width: 1536px;
+        margin: 0 auto;
+        padding-left: 218px;
+        padding-right: 218px;
+      }
+      .hero {
+        position: relative;
+        min-height: 1080px;
+        background:
+          radial-gradient(circle at 75% 10%, rgba(179, 239, 203, 0.55) 0%, rgba(179, 239, 203, 0) 28%),
+          radial-gradient(circle at 42% 84%, rgba(106, 125, 255, 0.52) 0%, rgba(106, 125, 255, 0) 35%),
+          radial-gradient(circle at 83% 88%, rgba(93, 170, 255, 0.38) 0%, rgba(93, 170, 255, 0) 28%),
+          linear-gradient(151deg, #ffffff 0%, #f7fbff 39%, #eaf7ff 100%);
+      }
+      .hero:before,
+      .hero:after {
+        content: "";
+        position: absolute;
+        border-radius: 999px;
+        filter: blur(34px);
+        opacity: 0.55;
+      }
+      .hero:before {
+        width: 520px;
+        height: 220px;
+        left: 230px;
+        top: 720px;
+        background: #b2c3ff;
+      }
+      .hero:after {
+        width: 420px;
+        height: 260px;
+        right: 220px;
+        top: 300px;
+        background: #c6f2dc;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 56px;
+        min-height: 1080px;
+      }
+      .hero-copy {
+        width: 780px;
+        min-height: 800px;
+        padding-top: 320px;
+        position: relative;
+      }
+      .hero-tags {
+        display: flex;
+        gap: 26px;
+        margin-bottom: 40px;
+      }
+      .hero-tag,
+      .section-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 6px 16px;
+        border: 1px solid #162874;
+        border-radius: 8px;
+        color: #162874;
+        font-size: 14px;
+        line-height: 21.7px;
+        font-weight: 500;
+      }
+      .hero-title {
+        max-width: 615px;
+        font-size: 64px;
+        line-height: 1.18;
+        font-weight: 700;
+        color: #142572;
+        margin: 0;
+      }
+      .hero-subline {
+        margin-top: 24px;
+        width: 381px;
+        height: 67px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, rgba(255,255,255,0.95), rgba(229,238,255,0.9));
+        box-shadow: inset 0 0 0 1px rgba(22,40,116,0.08);
+      }
+      .hero-visual {
+        width: 794px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .channels {
+        position: absolute;
+        left: 0;
+        top: 102px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        z-index: 2;
+      }
+      .channel {
+        width: 93px;
+        height: 94px;
+        border-radius: 46px;
+        box-shadow: 0 12px 32px rgba(64, 96, 180, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        color: #fff;
+        overflow: hidden;
+        background: #fff;
+      }
+      .channel.line { background: #25d366; font-size: 26px; }
+      .channel img { width: 100%; height: 100%; object-fit: cover; }
+      .phone-card {
+        position: relative;
+        width: 564px;
+        padding: 34px;
+        border-radius: 58px;
+        background: linear-gradient(132deg, #ffffff 0%, #edf4ff 100%);
+        box-shadow: 0 30px 80px rgba(70, 95, 190, 0.22), inset 0 0 0 14px rgba(228, 237, 255, 0.85);
+        transform: rotate(5deg);
+      }
+      .phone-screen {
+        border-radius: 42px;
+        background: linear-gradient(180deg, #f9fbff 0%, #edf5ff 100%);
+        box-shadow: inset 0 0 0 1px rgba(80, 110, 200, 0.08);
+        overflow: hidden;
+        min-height: 883px;
+        position: relative;
+      }
+      .phone-header {
+        height: 136px;
+        background: rgba(255,255,255,0.68);
+        padding: 24px 32px;
+        position: relative;
+      }
+      .phone-back { font-size: 42px; font-weight: 300; color: #16215f; }
+      .phone-title { font-size: 24px; font-weight: 800; color: #16215f; margin-top: -34px; margin-left: 34px; }
+      .phone-status { display: flex; align-items: center; gap: 8px; color: #5b637f; font-size: 16px; margin-left: 48px; margin-top: 4px; }
+      .phone-status-dot { width: 13px; height: 13px; border-radius: 50%; background: #20d060; }
+      .phone-dots { position: absolute; right: 28px; top: 64px; color: #16215f; font-size: 28px; letter-spacing: 6px; font-weight: 700; }
+      .message-user {
+        width: 316px;
+        margin: 24px 48px 0 auto;
+        background: #1f6bff;
+        color: #fff;
+        border-radius: 22px 22px 8px 22px;
+        padding: 24px 28px;
+        box-shadow: 0 8px 24px rgba(60, 78, 140, 0.1);
+        font-size: 22px;
+        line-height: 34.1px;
+      }
+      .message-meta {
+        margin-top: 10px;
+        text-align: right;
+        font-size: 16px;
+        line-height: 24.8px;
+        opacity: 0.75;
+      }
+      .message-ai {
+        width: 423px;
+        margin: 24px 0 0 54px;
+        background: #fff;
+        border-radius: 22px;
+        box-shadow: 0 8px 24px rgba(60, 78, 140, 0.1);
+        padding: 24px 26px 28px;
+      }
+      .message-ai h3 {
+        margin: 0 0 12px;
+        font-size: 22px;
+        line-height: 34px;
+        color: #1671ff;
+        font-weight: 900;
+      }
+      .message-ai ul {
+        margin: 0;
+        padding-left: 22px;
+        color: #1f1f1f;
+        font-size: 18px;
+        line-height: 1.7;
+      }
+      .message-ai li { margin-bottom: 8px; }
+      .robot-badge {
+        position: absolute;
+        right: 60px;
+        bottom: 42px;
+        width: 190px;
+        height: 190px;
+        border-radius: 50%;
+        background: linear-gradient(180deg, #f8fcff 0%, #dce9ff 100%);
+        box-shadow: inset 0 -10px 24px rgba(56, 108, 220, 0.14);
+      }
+      .robot-badge:before {
+        content: "AI";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 36px;
+        font-weight: 700;
+        color: #62dcff;
+      }
+      .section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+      }
+      .section-gradient-a {
+        background:
+          radial-gradient(circle at 94% 100%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 23%, rgba(255,255,255,0) 47%),
+          radial-gradient(circle at 0% 100%, rgba(61,87,205,0.47) 0%, rgba(61,87,205,0.23) 7%, rgba(61,87,205,0) 24%),
+          radial-gradient(circle at 26% 39%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%),
+          radial-gradient(circle at 85% 38%, rgba(107,150,236,1) 0%, rgba(107,150,236,0.5) 28%, rgba(107,150,236,0) 46%),
+          radial-gradient(circle at 49% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
+      }
+      .section-gradient-b {
+        background: #fff;
+      }
+      .section-gradient-c {
+        background:
+          radial-gradient(circle at 0% 0%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 30%, rgba(255,255,255,0) 55%),
+          radial-gradient(circle at 95% 85%, rgba(242,200,180,0.35) 0%, rgba(242,200,180,0.17) 8%, rgba(242,200,180,0) 20%),
+          radial-gradient(circle at 15% 30%, rgba(107,150,236,0.3) 0%, rgba(107,150,236,0.15) 25%, rgba(107,150,236,0) 55%),
+          radial-gradient(circle at 70% 20%, rgba(149,185,255,0.25) 0%, rgba(149,185,255,0.13) 20%, rgba(149,185,255,0) 45%),
+          radial-gradient(circle at 49% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
+      }
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 56px;
+      }
+      .section-title {
+        margin: 0;
+        font-size: 40px;
+        line-height: 48px;
+        font-weight: 500;
+        color: #1f1f1f;
+        text-align: center;
+      }
+      .cards-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+      .pain-card,
+      .persona-card {
+        position: relative;
+        border-radius: 24px;
+        border: 1px solid #e0e2eb;
+        overflow: hidden;
+      }
+      .pain-card {
+        background: #fff;
+        min-height: 300px;
+        box-shadow: 0 4px 24px -4px rgba(89, 102, 166, 0.06);
+        padding: 41px;
+      }
+      .pain-card .num {
+        color: #142572;
+        font-size: 40px;
+        line-height: 62px;
+        font-weight: 700;
+        margin-bottom: 34px;
+      }
+      .pain-card p {
+        margin: 0;
+        font-size: 24px;
+        line-height: 30.6px;
+        color: #000;
+      }
+      .persona-card {
+        min-height: 283px;
+        padding: 25px;
+        text-align: center;
+        box-shadow: 0 4px 24px -4px rgba(89, 102, 166, 0.06);
+      }
+      .persona-card .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 30px;
+      }
+      .persona-card h3 {
+        margin: 0 0 12px;
+        font-size: 20px;
+        line-height: 31px;
+        font-weight: 500;
+      }
+      .persona-card p {
+        margin: 0;
+        font-size: 14px;
+        line-height: 23.8px;
+        color: #6a6d81;
+      }
+      .persona-card.blue {
+        background:
+          radial-gradient(circle at 94% 100%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 23%, rgba(255,255,255,0) 47%),
+          radial-gradient(circle at 0% 100%, rgba(61,87,205,0.47) 0%, rgba(61,87,205,0.23) 7%, rgba(61,87,205,0) 24%),
+          radial-gradient(circle at 26% 39%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 60%, rgba(255,255,255,0) 100%),
+          radial-gradient(circle at 85% 38%, rgba(107,150,236,1) 0%, rgba(107,150,236,0.5) 28%, rgba(107,150,236,0) 46%),
+          radial-gradient(circle at 49% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
+      }
+      .persona-card.green {
+        background:
+          radial-gradient(circle at 71% 10%, rgba(210,228,199,1) 0%, rgba(210,228,199,0.5) 16%, rgba(210,228,199,0) 35%),
+          radial-gradient(circle at 89% 81%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 32%, rgba(255,255,255,0) 65%),
+          radial-gradient(circle at 59% 11%, rgba(243,248,240,1) 0%, rgba(243,248,240,0.5) 42%, rgba(243,248,240,0) 60%),
+          radial-gradient(circle at 5% 105%, rgba(61,87,205,0.35) 0%, rgba(61,87,205,0.17) 20%, rgba(61,87,205,0) 45%),
+          radial-gradient(circle at 17% 58%, rgba(242,234,231,1) 0%, rgba(242,234,231,0.5) 35%, rgba(242,234,231,0) 50%),
+          radial-gradient(circle at 49% 50%, rgba(255,255,255,1) 0%, rgba(255,255,255,0.5) 100%, rgba(255,255,255,0) 100%);
+      }
+      .persona-card.peach {
+        background:
+          radial-gradient(circle at 100% 92%, rgba(149,185,255,0.49) 0%, rgba(149,185,255,0.25) 12%, rgba(149,185,255,0) 26%),
+          radial-gradient(circle at 0% 13%, rgba(242,234,231,1) 0%, rgba(242,234,231,0.5) 35%, rgba(242,234,231,0) 50%),
+          rgba(255,255,255,0);
+      }
+      .about-copy {
+        max-width: 1100px;
+        margin: 0 auto 56px;
+        text-align: center;
+      }
+      .about-copy p {
+        width: 640px;
+        max-width: 100%;
+        margin: 0 auto;
+        color: #6a6d81;
+        font-size: 18px;
+        line-height: 27.9px;
+      }
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 24px;
+      }
+      .gallery .item {
+        border-radius: 12px;
+        background: #dde9fb;
+        min-height: 351px;
+        overflow: hidden;
+      }
+      .gallery .item.span-2 { grid-column: span 2; }
+      .gallery .item.span-3 { grid-column: span 3; }
+      .gallery .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .cta {
+        background: #152a5b;
+        color: #fff;
+        text-align: center;
+        padding: 76px 20px 64px;
+      }
+      .cta .inner {
+        max-width: 768px;
+        margin: 0 auto;
+      }
+      .cta p {
+        margin: 0 0 32px;
+        color: rgba(255,255,255,0.8);
+        font-size: 18px;
+        line-height: 27.9px;
+      }
+      .cta a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 40px;
+        border: 1px solid #fff;
+        border-radius: 16px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 27.9px;
+        font-weight: 700;
+      }
+      .footer {
+        background: #09152b;
+        text-align: center;
+        color: #f7f9fc;
+        padding: 32px 20px;
+        font-size: 18px;
+        line-height: 27.9px;
+      }
+      @media (max-width: 1200px) {
+        .container { padding-left: 48px; padding-right: 48px; }
+        .hero-inner { flex-direction: column; justify-content: center; padding: 80px 0; }
+        .hero-copy, .hero-visual { width: 100%; }
+        .hero-copy { min-height: auto; padding-top: 0; }
+        .hero-title { max-width: 100%; }
+        .channels { position: static; flex-direction: row; justify-content: center; margin-bottom: 24px; }
+        .phone-card { transform: none; margin: 0 auto; }
+      }
+      @media (max-width: 900px) {
+        .hero { min-height: auto; }
+        .hero-tags { flex-wrap: wrap; gap: 12px; }
+        .hero-title { font-size: 40px; }
+        .cards-3 { grid-template-columns: 1fr; }
+        .gallery { grid-template-columns: 1fr; }
+        .gallery .item, .gallery .item.span-2, .gallery .item.span-3 { grid-column: span 1; min-height: 220px; }
+        .phone-card { width: 100%; padding: 18px; border-radius: 32px; }
+        .phone-screen { min-height: auto; }
+        .message-user, .message-ai { width: auto; margin-left: 20px; margin-right: 20px; font-size: 16px; line-height: 1.6; }
+        .robot-badge { display: none; }
+        .section-title { font-size: 30px; line-height: 1.25; }
+      }
+      @media (max-width: 640px) {
+        .container { padding-left: 20px; padding-right: 20px; }
+        .section { padding-top: 56px; padding-bottom: 56px; }
+        .hero-title { font-size: 32px; line-height: 1.3; }
+        .pain-card { padding: 24px; min-height: auto; }
+        .pain-card .num { margin-bottom: 16px; font-size: 32px; line-height: 1.2; }
+        .pain-card p { font-size: 20px; line-height: 1.45; }
+        .persona-card { min-height: auto; }
+        .cta p, .footer, .about-copy p { font-size: 16px; line-height: 1.7; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <div class="hero-subline"></div>
+            <div class="hero-tags">
+              <span class="hero-tag">市場獨家</span>
+              <span class="hero-tag">一站整合</span>
+              <span class="hero-tag">自動對話</span>
+            </div>
+            <h1 class="hero-title">解決高複雜產業情境<br>AI 智能客服</h1>
+          </div>
+          <div class="hero-visual">
+            <div class="channels">
+              <div class="channel line">LINE</div>
+              <div class="channel"><img src="https://placehold.co/93x95" alt="channel icon"></div>
+              <div class="channel"><img src="https://placehold.co/93x94" alt="channel icon"></div>
+            </div>
+            <div class="phone-card">
+              <div class="phone-screen">
+                <div class="phone-header">
+                  <div class="phone-back">‹</div>
+                  <div class="phone-title">AI 智能客服</div>
+                  <div class="phone-status"><span class="phone-status-dot"></span><span>線上</span></div>
+                  <div class="phone-dots">‧‧‧</div>
+                </div>
+                <div class="message-user">
+                  請問你們的產品有哪些特色？
+                  <div class="message-meta">下午 2:17 ✓✓</div>
+                </div>
+                <div class="message-ai">
+                  <h3>AI 客服可協助你：</h3>
+                  <ul>
+                    <li>即時回覆高頻問題</li>
+                    <li>整合多通路訊息</li>
+                    <li>降低漏接與等待時間</li>
+                    <li>維持一致品牌口吻</li>
+                    <li>必要時快速轉真人</li>
+                  </ul>
+                </div>
+                <div class="robot-badge"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-gradient-a">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-pill">常見痛點</span>
+            <h2 class="section-title">產業常見痛點</h2>
+          </div>
+          <div class="cards-3">
+            <div class="pain-card">
+              <div class="num">01</div>
+              <p>旺季找 PT、門市人員<br>專業度不齊？</p>
+            </div>
+            <div class="pain-card">
+              <div class="num">02</div>
+              <p>產品規格很多，花時間<br>回覆重複高的問題？</p>
+            </div>
+            <div class="pain-card">
+              <div class="num">03</div>
+              <p>問題四散不同平台，擔心<br>漏接影響品牌形象？</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-gradient-b">
+        <div class="container">
+          <div class="section-header">
+            <span class="section-pill">適合對象</span>
+            <h2 class="section-title">為什麼需要 AI 智能客服？</h2>
+          </div>
+          <div class="cards-3">
+            <div class="persona-card blue">
+              <div class="avatar" style="background:#d2e4ff;"></div>
+              <h3>品牌創辦者與經營者</h3>
+              <p>希望提升客服效率、打造智慧品牌形象的管理層。</p>
+            </div>
+            <div class="persona-card green">
+              <div class="avatar" style="background:#dbe9c9;"></div>
+              <h3>客戶體驗負責人 / 主管</h3>
+              <p>推動企業服務創新、數位轉型以及尋求客服效率的高效方案。</p>
+            </div>
+            <div class="persona-card peach">
+              <div class="avatar" style="background:#efe1db;"></div>
+              <h3>策略資訊長</h3>
+              <p>專注公司 AI 導入專案與客服流程優化精進，以及協助企業轉型。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-gradient-c">
+        <div class="container">
+          <div class="section-header" style="margin-bottom:32px;">
+            <span class="section-pill">關於 Raccoon AI</span>
+            <h2 class="section-title">幫助企業創造頂尖客戶體驗</h2>
+          </div>
+          <div class="about-copy">
+            <p>Raccoon AI 打造企業級 AI 客戶服務，讓品牌在每一次對話中都能抓住商機。</p>
+          </div>
+          <div class="gallery">
+            <div class="item span-2"><img src="https://placehold.co/351x351" alt="Raccoon AI 功能展示 1"></div>
+            <div class="item span-2"><img src="https://placehold.co/351x351" alt="Raccoon AI 功能展示 2"></div>
+            <div class="item span-2"><img src="https://placehold.co/351x351" alt="Raccoon AI 功能展示 3"></div>
+            <div class="item span-3"><img src="https://placehold.co/351x351" alt="Raccoon AI 功能展示 4"></div>
+            <div class="item span-3"><img src="https://placehold.co/351x351" alt="Raccoon AI 功能展示 5"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="inner">
+          <p>2026/3/25（三）14:00 - 15:00 ｜ 線上講座 ｜ 免費參加</p>
+          <a href="#">立即免費報名</a>
+        </div>
+      </section>
+
+      <footer class="footer">© 2025 Raccoon AI. All rights reserved.</footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "kind": "critique-panel",
+  "score": 4,
+  "axes": {
+    "clarity": {
+      "score": 4,
+      "notes": "Single-page product landing structure is clear: hero, pain, capability, audience, industries, CTA."
+    },
+    "hierarchy": {
+      "score": 4,
+      "notes": "Hero message and industry image section are the strongest focal points, with supporting sections kept concise."
+    },
+    "typography": {
+      "score": 4,
+      "notes": "Chinese system stack and large display scale match the reference without squeezing mobile text."
+    },
+    "motion": {
+      "score": 3,
+      "notes": "Interaction uses restrained hover and filter state transitions; no heavy animation was needed for this brief."
+    },
+    "brand": {
+      "score": 4,
+      "notes": "Palette, rounded panels, blue accent system, and Raccoon AI wordmark are aligned with the supplied reference and images."
+    }
+  }
+}

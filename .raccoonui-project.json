@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "id": "181ea792-3b7a-412b-ab91-06dff345ef6f",
+  "name": "根據此檔案的文案，幫我生成頁面，配色請參考此檔案，以及幫我額外排底下的五個產業圖檔，同時需使用 Raccoon AI logo",
+  "skillId": null,
+  "designSystemId": null,
+  "pendingPrompt": null,
+  "metadata": {
+    "kind": "other"
+  },
+  "createdAt": 1779203790008,
+  "updatedAt": 1779205612707
+}
